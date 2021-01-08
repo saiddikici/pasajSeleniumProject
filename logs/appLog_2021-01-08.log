@@ -1,0 +1,9 @@
+[INFO ] 2021-01-08 16:33:08,661 DriverHelper.getDriver() - Execution after setting ChromeDriver path in System Variables
+[INFO ] 2021-01-08 16:33:26,191 HomePage.clickPassageBtn() - Clicking passage button
+[INFO ] 2021-01-08 16:33:27,105 PassagePage.scrollToTheEndOfPage() - Scrolling
+[INFO ] 2021-01-08 16:33:32,499 PassagePage.clickAppleMacbookBtn() - Clicking Apple Macbook Button
+[INFO ] 2021-01-08 16:33:34,559 PassagePage.clickAppleMacBookProTouchBarThirteenInch() - Clicking Apple MacBook Pro Touch Bar 13 inç
+[INFO ] 2021-01-08 16:33:37,796 PassagePage.verifyDefaultPrice() - Checking if the price higher than 1000$
+[INFO ] 2021-01-08 16:33:37,827 PassagePage.verifyDefaultPrice() - Price is higher than 1000$
+[INFO ] 2021-01-08 16:33:37,828 PassagePage.verifySixMonthsHigherThanNineMonths() - Calculating...
+[INFO ] 2021-01-08 16:33:37,990 PassagePage.verifySixMonthsHigherThanNineMonths() - Six months price is higher than nine months price.
