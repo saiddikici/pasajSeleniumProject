@@ -1,9 +1,20 @@
-[INFO ] 2021-01-08 16:33:08,661 DriverHelper.getDriver() - Execution after setting ChromeDriver path in System Variables
-[INFO ] 2021-01-08 16:33:26,191 HomePage.clickPassageBtn() - Clicking passage button
-[INFO ] 2021-01-08 16:33:27,105 PassagePage.scrollToTheEndOfPage() - Scrolling
-[INFO ] 2021-01-08 16:33:32,499 PassagePage.clickAppleMacbookBtn() - Clicking Apple Macbook Button
-[INFO ] 2021-01-08 16:33:34,559 PassagePage.clickAppleMacBookProTouchBarThirteenInch() - Clicking Apple MacBook Pro Touch Bar 13 inç
-[INFO ] 2021-01-08 16:33:37,796 PassagePage.verifyDefaultPrice() - Checking if the price higher than 1000$
-[INFO ] 2021-01-08 16:33:37,827 PassagePage.verifyDefaultPrice() - Price is higher than 1000$
-[INFO ] 2021-01-08 16:33:37,828 PassagePage.verifySixMonthsHigherThanNineMonths() - Calculating...
-[INFO ] 2021-01-08 16:33:37,990 PassagePage.verifySixMonthsHigherThanNineMonths() - Six months price is higher than nine months price.
+[INFO ] 2021-01-08 16:38:01,249 DriverHelper.getDriver() - Execution after setting ChromeDriver path in System Variables
+[INFO ] 2021-01-08 16:38:18,209 HomePage.clickSearchBtn() - Clicked to Search Button
+[INFO ] 2021-01-08 16:38:19,066 HomePage.setTextToSearchFieldAndPressEnter() - typing iPhone 11 128 GB
+[INFO ] 2021-01-08 16:38:23,244 SearchResults.clickDevicesTab() - Clicking on devices tab
+[INFO ] 2021-01-08 16:38:23,712 SearchResults.verifyDeviceNameMatches() - checking for iPhone 11 128 GB if matches with result
+[INFO ] 2021-01-08 16:38:23,744 SearchResults.verifyDeviceNameMatches() - Success!
+[INFO ] 2021-01-08 16:38:29,955 DriverHelper.getDriver() - Execution after setting ChromeDriver path in System Variables
+[INFO ] 2021-01-08 16:38:50,428 HomePage.clickPassageBtn() - Clicking passage button
+[INFO ] 2021-01-08 16:38:55,625 PassagePage.clickBasketBtn() - Clicking basket button
+[INFO ] 2021-01-08 16:38:58,588 BasketPage.verifyIfYourBasketIsEmpty() - Checking if your basket is empty
+[INFO ] 2021-01-08 16:38:58,612 BasketPage.verifyIfYourBasketIsEmpty() - Texts are matching.
+[INFO ] 2021-01-08 16:39:04,841 DriverHelper.getDriver() - Execution after setting ChromeDriver path in System Variables
+[INFO ] 2021-01-08 16:39:13,746 HomePage.clickPassageBtn() - Clicking passage button
+[INFO ] 2021-01-08 16:39:15,661 PassagePage.scrollToTheEndOfPage() - Scrolling
+[INFO ] 2021-01-08 16:39:20,895 PassagePage.clickAppleMacbookBtn() - Clicking Apple Macbook Button
+[INFO ] 2021-01-08 16:39:24,304 PassagePage.clickAppleMacBookProTouchBarThirteenInch() - Clicking Apple MacBook Pro Touch Bar 13 inç
+[INFO ] 2021-01-08 16:39:27,699 PassagePage.verifyDefaultPrice() - Checking if the price higher than 1000$
+[INFO ] 2021-01-08 16:39:27,857 PassagePage.verifyDefaultPrice() - Price is higher than 1000$
+[INFO ] 2021-01-08 16:39:27,857 PassagePage.verifySixMonthsHigherThanNineMonths() - Calculating...
+[INFO ] 2021-01-08 16:39:28,344 PassagePage.verifySixMonthsHigherThanNineMonths() - Six months price is higher than nine months price.

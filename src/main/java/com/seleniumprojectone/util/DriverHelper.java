@@ -7,10 +7,13 @@ import org.apache.logging.log4j.Logger;
 
 public class DriverHelper {
     private static final Logger logger = LogManager.getLogger(DriverHelper.class);
-    public static WebDriver getDriver(){
-        logger.info("Execution after setting ChromeDriver path in System Variables");
 
+    public static void setDriverPath(){
+        logger.info("Execution after setting ChromeDriver path in System Variables");
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\TCMDIKICI\\IdeaProjects\\chromedriver.exe");
+    }
+
+    public static WebDriver getDriver(){
         WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
 

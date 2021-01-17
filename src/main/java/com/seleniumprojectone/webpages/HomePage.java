@@ -26,6 +26,7 @@ public class HomePage {
         driverWait = new WebDriverWait(driver,10);
     }
 
+
     public void clickSearchBtn(){
         howCanWeHelpYou = driver.findElement(By.xpath("//input[@name=\"qx\" and contains(@placeholder,\"Size\")]"));
         driver.findElement(By.xpath("//a[contains(@class,\"js-search\")]/i")).click();
