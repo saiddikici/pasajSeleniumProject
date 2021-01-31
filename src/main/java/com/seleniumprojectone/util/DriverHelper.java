@@ -8,9 +8,9 @@ import org.apache.logging.log4j.Logger;
 public class DriverHelper {
     private static final Logger logger = LogManager.getLogger(DriverHelper.class);
 
-    public static void setDriverPath(){
+    public static void setDriverPath(String driverType, String driverPath){
         logger.info("Execution after setting ChromeDriver path in System Variables");
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\TCMDIKICI\\IdeaProjects\\chromedriver.exe");
+        System.setProperty(driverType, driverPath);
     }
 
     public static WebDriver getDriver(){

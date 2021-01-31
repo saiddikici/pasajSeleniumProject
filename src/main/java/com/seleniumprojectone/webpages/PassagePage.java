@@ -5,30 +5,27 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class PassagePage {
+public class PassagePage extends BasePage{
     private static final Logger logger = LogManager.getLogger(PassagePage.class);
     WebDriver driver;
-    WebDriverWait driverWait;
     JavascriptExecutor javascriptExecutor;
 
-    By basketBtn = By.xpath("//a[@class=\"o-p-header__my-basket\"]");
-    By appleMacbookBtn = By.xpath("//a[@href=\"/cihazlar/tabletler/bilgisayarlar-apple?place=footer\"]");
+    private final By basketBtn = By.xpath("//a[@class=\"o-p-header__my-basket\"]");
+    private final By appleMacbookBtn = By.xpath("//a[@href=\"/cihazlar/tabletler/bilgisayarlar-apple?place=footer\"]");
 
     public PassagePage(WebDriver driver) {
         this.driver = driver;
-        driverWait = new WebDriverWait(driver,10);
+        init(driver);
     }
 
-    public void clickBasketBtn(){
+    public BasketPage clickBasketBtn(){
         logger.info("Clicking basket button");
-        driver.findElement(basketBtn).click();
-        driverWait.until(ExpectedConditions.urlContains("siparisler"));
+        actions.clickElement(basketBtn);
+        return new BasketPage(driver);
     }
 
-    public void scrollToTheEndOfPage(){
+    public PassagePage scrollToTheEndOfPage(){
         logger.info("Scrolling");
         javascriptExecutor = (JavascriptExecutor) driver;
         try {
@@ -42,11 +39,12 @@ public class PassagePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        return this;
     }
 
-    public void clickAppleMacbookBtn(){
+    public PassageAppleMacbookPage clickAppleMacbookBtn(){
         logger.info("Clicking Apple Macbook Button");
-        driver.findElement(appleMacbookBtn).click();
-        driverWait.until(ExpectedConditions.urlContains("bilgisayarlar-apple"));
+        actions.clickElement(appleMacbookBtn);
+        return new PassageAppleMacbookPage(driver);
     }
 }

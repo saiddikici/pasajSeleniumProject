@@ -1,0 +1,5 @@
+[INFO ] 2021-01-30 19:59:21,471 DriverHelper.setDriverPath() - Execution after setting ChromeDriver path in System Variables
+[INFO ] 2021-01-30 19:59:30,658 HomePage.clickSearchBtn() - Clicked to Search Button
+[INFO ] 2021-01-30 19:59:30,658 HomePage.setTextToSearchFieldAndPressEnter() - typing iPhone 11 128 GB
+[INFO ] 2021-01-30 19:59:33,071 SearchResults.clickDevicesTab() - Clicking on devices tab
+[INFO ] 2021-01-30 19:59:33,965 SearchResults.verifyDeviceNameMatches() - checking for iPhone 11 128 GB if matches with result

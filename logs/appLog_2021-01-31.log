@@ -1,0 +1,3 @@
+[INFO ] 2021-01-31 16:52:28,244 DriverHelper.setDriverPath() - Execution after setting ChromeDriver path in System Variables
+[INFO ] 2021-01-31 16:52:37,550 HomePage.clickPassageBtn() - Clicking passage button
+[INFO ] 2021-01-31 16:52:38,358 PassagePage.scrollToTheEndOfPage() - Scrolling

@@ -1,37 +1,30 @@
 package com.seleniumprojectone;
 
+import com.seleniumprojectone.webpages.*;
 import org.testng.annotations.Test;
 
 public class PasajTests extends TestBase{
 
     @Test
     public void scenarioOne(){
-        homePage.clickSearchBtn();
-        homePage.setTextToSearchFieldAndPressEnter();
-        try {Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
-        searchResults.clickDevicesTab();
-        searchResults.verifyDeviceNameMatches();
+        HomePage homePage = new HomePage(webDriver);
+        SearchResults searchResults = homePage.clickSearchBtn().setTextToSearchFieldAndPressEnter();
+        searchResults.clickDevicesTab().verifyDeviceNameMatches();
     }
 
     @Test
     public void scenarioTwo(){
-        homePage.clickPassageBtn();
-        try {Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
-        passagePage.clickBasketBtn();
-        try {Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
+        HomePage homePage = new HomePage(webDriver);
+        PassagePage passagePage = homePage.clickPassageBtn();
+        BasketPage basketPage = passagePage.clickBasketBtn();
         basketPage.verifyIfYourBasketIsEmpty();
     }
 
     @Test
     public void scenarioThree(){
-        homePage.clickPassageBtn();
-        try {Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
-        passagePage.scrollToTheEndOfPage();
-        passagePage.clickAppleMacbookBtn();
-        try {Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
-        passageAppleMacbookPage.clickAppleMacBookProTouchBarThirteenInch();
-        passageAppleMacbookPage.verifyDefaultPrice();
-        passageAppleMacbookPage.verifySixMonthsHigherThanNineMonths();
+        HomePage homePage = new HomePage(webDriver);
+        PassagePage passagePage = homePage.clickPassageBtn();
+        PassageAppleMacbookPage passageAppleMacbookPage = passagePage.scrollToTheEndOfPage().clickAppleMacbookBtn();
+        passageAppleMacbookPage.clickAppleMacBookProTouchBarThirteenInch().verifyDefaultPrice();
     }
-
 }

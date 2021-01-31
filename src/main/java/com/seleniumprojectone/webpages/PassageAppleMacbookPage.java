@@ -4,60 +4,27 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class PassageAppleMacbookPage {
+public class PassageAppleMacbookPage extends BasePage{
     private static final Logger logger = LogManager.getLogger(PassagePage.class);
     WebDriver driver;
-    WebDriverWait driverWait;
-    String price;
-    Double doublePrice;
 
-    By appleMacBookProTouchBarBtn = By.xpath("//a[@href=\"/pasaj/bilgisayar-tablet/bilgisayarlar/macbook/apple-macbook-pro-touch-bar-13-inc-10-nesil-intel-core-i5-2-0-ghz-16-gb-ram-1-tb-ssd\"]");
-    By defaultPrice = By.xpath("//span[@class=\"a-price-val\"]");
-    By sixMonthsPrice = By.xpath("//a[@data-period=\"6\"]");
-    By nineMonthsPrice = By.xpath("//a[@data-period=\"9\"]");
+    private final By appleMacBookProTouchBarBtn = By.xpath("(//span[@class=\"m-p-pc__title\" and contains(text(),\"Apple MacBook Pro Touch Bar\") and ./parent::div/following-sibling::*/div/span])[1]");
+    private final By defaultPrice = By.xpath("//span[@class=\"a-price-val\"]");
 
     public PassageAppleMacbookPage(WebDriver driver) {
         this.driver = driver;
-        driverWait = new WebDriverWait(driver,10);
+        init(driver);
     }
 
-    public void clickAppleMacBookProTouchBarThirteenInch(){
+    public PassageAppleMacbookPage clickAppleMacBookProTouchBarThirteenInch(){
         logger.info("Clicking Apple MacBook Pro Touch Bar 13 inç");
-        driver.findElement(appleMacBookProTouchBarBtn).click();
-        driverWait.until(ExpectedConditions.urlContains("macbook"));
+        actions.clickElement(appleMacBookProTouchBarBtn);
+        return this;
     }
 
     public void verifyDefaultPrice(){
         logger.info("Checking if the price higher than 1000$");
-        price = driver.findElement(defaultPrice).getText();
-        doublePrice = Double.valueOf(price.replace(".", "").replace(',', '.'));
-        if(doublePrice > 1000){
-            logger.info("Price is higher than 1000$");
-        }
-        else {
-            logger.warn("Price is not higher than 1000$");
-        }
-    }
-
-    public void verifySixMonthsHigherThanNineMonths(){
-        logger.info("Calculating...");
-        if(
-                Double.valueOf(driver.findElement(sixMonthsPrice).getAttribute("data-price").replace(".", "").replace(',', '.')) >
-                Double.valueOf(driver.findElement(nineMonthsPrice).getAttribute("data-price").replace(".", "").replace(',', '.'))
-        ){
-            logger.info("Six months price is higher than nine months price.");
-        }else {
-            logger.info("Six months price is not higher than nine months price.");
-        }
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        By by;
+        validations.verifyActualValueisHigher(actions.getTextOfElement(defaultPrice), "1000" );
     }
 }

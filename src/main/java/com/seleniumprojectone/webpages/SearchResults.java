@@ -4,45 +4,30 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class SearchResults {
+public class SearchResults extends BasePage {
     private static final Logger logger = LogManager.getLogger(SearchResults.class);
     WebDriver driver;
-    WebDriverWait driverWait;
 
     String iphone = "iPhone 11 128 GB";
 
-    By devicesTab = By.xpath("//a[@title=\"Cihazlar\"]");
-    By selectedDevicesTab = By.xpath("//a[@title=\"Cihazlar\"]/parent::div");
+    private final By devicesTab = By.xpath("//a[@title=\"Cihazlar\"]");
+    private final By deviceName = By.xpath("//*[@id=\"tabDevices\"]/div[1]/a/div[1]/span");
 
     public SearchResults(WebDriver driver) {
         this.driver = driver;
-        driverWait = new WebDriverWait(driver, 10);
+        init(driver);
     }
 
-    public void clickDevicesTab(){
+    public SearchResults clickDevicesTab() {
         logger.info("Clicking on devices tab");
-
-        driver.findElement(devicesTab).click();
-
-        driverWait.until(ExpectedConditions.attributeContains(selectedDevicesTab, "class", "m-tab__item--active"));
+        actions.clickElement(devicesTab);
+        return this;
     }
 
-    public void verifyDeviceNameMatches(){
+    public void verifyDeviceNameMatches() {
         logger.info("checking for " + iphone + " if matches with result");
-        if(driver.findElement(By.xpath("(//div[starts-with(@class,\"m-grid-col-3\")]/a/div/span)[1]")).getAttribute("innerHTML").equals(iphone)){
-            logger.info("Success!");
-        }
-        else {
-            logger.error("Fail!!!");
-        }
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        validations.verifyElementTextEqualsText(actions.getAttributeOfElement(deviceName, "innerHTML"), iphone);
     }
 }

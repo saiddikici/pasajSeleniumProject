@@ -5,50 +5,40 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class HomePage {
+public class HomePage extends BasePage {
     private static final Logger logger = LogManager.getLogger(HomePage.class);
-    WebElement howCanWeHelpYou;
     WebDriver driver;
-    WebDriverWait driverWait;
     String iphone = "iPhone 11 128 GB";
 
-    By passageBtn = By.xpath("//a[@href=\"/pasaj?place=menu\"]");
-    By basketBtn = By.xpath("//a[@class=\"o-p-header__my-basket\"]");
+    private final By passageBtn = By.xpath("//a[@href=\"/pasaj?place=menu\"]");
+    private final By searchBtn = By.xpath("//a[contains(@class,\"js-search\")]/i");
+    private final By howCanWeHelpYou = By.xpath("//input[@name=\"qx\" and contains(@placeholder,\"Size\")]");
 
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
-        driverWait = new WebDriverWait(driver,10);
+        init(driver);
     }
 
 
-    public void clickSearchBtn(){
-        howCanWeHelpYou = driver.findElement(By.xpath("//input[@name=\"qx\" and contains(@placeholder,\"Size\")]"));
-        driver.findElement(By.xpath("//a[contains(@class,\"js-search\")]/i")).click();
-
+    public HomePage clickSearchBtn() {
+        actions.clickElement(searchBtn);
         logger.info("Clicked to Search Button");
-
-        driverWait.until(ExpectedConditions.visibilityOf(howCanWeHelpYou));
-
+        return this;
     }
 
-    public void setTextToSearchFieldAndPressEnter(){
+    public SearchResults setTextToSearchFieldAndPressEnter() {
         logger.info("typing " + iphone);
-
-        howCanWeHelpYou.sendKeys(iphone);
-        howCanWeHelpYou.sendKeys(Keys.ENTER);
-
-        driverWait.until(ExpectedConditions.stalenessOf(howCanWeHelpYou));
+        actions.getElement(howCanWeHelpYou).sendKeys(iphone);
+        actions.getElement(howCanWeHelpYou).sendKeys(Keys.ENTER);
+        return new SearchResults(driver);
     }
 
-    public void clickPassageBtn(){
+    public PassagePage clickPassageBtn() {
         logger.info("Clicking passage button");
-        driver.findElement(passageBtn).click();
-        driverWait.until(ExpectedConditions.urlContains("pasaj?place=menu"));
+        actions.clickElement(passageBtn);
+        return new PassagePage(driver);
     }
 }

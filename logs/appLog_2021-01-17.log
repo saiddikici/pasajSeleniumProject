@@ -1,6 +1,6 @@
-[INFO ] 2021-01-17 18:24:05,181 DriverHelper.setDriverPath() - Execution after setting ChromeDriver path in System Variables
-[INFO ] 2021-01-17 18:24:17,227 HomePage.clickPassageBtn() - Clicking passage button
-[INFO ] 2021-01-17 18:24:21,552 PassagePage.scrollToTheEndOfPage() - Scrolling
-[INFO ] 2021-01-17 18:24:25,577 PassagePage.clickAppleMacbookBtn() - Clicking Apple Macbook Button
-[INFO ] 2021-01-17 18:24:28,894 PassagePage.clickAppleMacBookProTouchBarThirteenInch() - Clicking Apple MacBook Pro Touch Bar 13 inç
-[INFO ] 2021-01-17 18:24:30,430 PassagePage.verifyDefaultPrice() - Checking if the price higher than 1000$
+[INFO ] 2021-01-17 18:45:33,802 DriverHelper.setDriverPath() - Execution after setting ChromeDriver path in System Variables
+[INFO ] 2021-01-17 18:45:48,949 HomePage.clickPassageBtn() - Clicking passage button
+[INFO ] 2021-01-17 18:45:51,391 PassagePage.scrollToTheEndOfPage() - Scrolling
+[INFO ] 2021-01-17 18:45:55,861 PassagePage.clickAppleMacbookBtn() - Clicking Apple Macbook Button
+[INFO ] 2021-01-17 18:46:02,740 PassagePage.clickAppleMacBookProTouchBarThirteenInch() - Clicking Apple MacBook Pro Touch Bar 13 inç
+[INFO ] 2021-01-17 18:46:04,704 PassagePage.verifyDefaultPrice() - Checking if the price higher than 1000$
